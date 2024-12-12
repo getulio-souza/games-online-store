@@ -1,9 +1,21 @@
-<div *ngFor="let item of product">
-    <p>title: {{item.title}}</p>
-    <p>storage: {{item.storage}}</p>
-    <p>model: {{item.model}}</p>
-    <p>color: {{item.color}}</p>
-    <p>Price: {{'$' + item.price}}</p>
-    <p>Discont: {{item.discont}}</p>
-    <p>Disconted price:{{'$'+ getDiscontedPrice(item)}}</p>
-</div>
+<section class="products-container">
+    <article *ngFor="let item of product" class="single-product">
+        <img [src]="item.imageProduct" alt="">
+        <p>title: {{item.title}}</p>
+        <p>storage: {{item.storage}}</p>
+        <p>model: {{item.model}}</p>
+        <p>color: {{item.color}}</p>
+        <p>Price: {{'$' + item.price}}</p>
+        <p>Discont: {{item.discont}}</p>
+        <p>Disconted price:{{'$'+ getDiscontedPrice(item)}}</p>
+        <div style="color: red;">
+            {{item.inStock >= 0 ? 'Only '  + item.inStock + ' are left'  :  + 'no products avaliable'}}
+        </div>
+        <button (click)="decrementCartValue()">-</button>
+        <span>{{addToCart}}</span>
+        <button (click)="incrementCartValue()">+</button>
+        <!-- <button [disabled]="!(item.inStock > 0)">buy now</button> -->
+        <!-- <input type="text" [value]="name" (input)="onNameChange($event)">
+        {{name}} -->
+    </article>
+</section>
