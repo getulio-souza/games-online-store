@@ -1,0 +1,46 @@
+    .header-container{
+        height: 60px;
+        background-color: #f9e941;
+        display: flex   ;
+        justify-content: space-between;
+        padding: 0px 20px;
+        align-items: center;
+        box-shadow: 1px 2px 3px #a9a97d;
+
+        .header-logo{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img{
+                width: 50px;
+            }
+
+            span{
+                font-weight: 600;
+                text-transform: uppercase;
+                font-family: sans-serif;
+                width: 100px;
+            }
+        }
+
+        .navbar{
+            display: flex;
+            gap: 20px;
+
+            button{
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                transition: .5s;
+                background-color: white;
+                font-weight: bold;
+                padding: 10px;
+                border-radius: 5px;
+                
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
