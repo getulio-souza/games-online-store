@@ -4,6 +4,8 @@
     <button class="btn btn-search">Search</button>
   </div>
   <div class="search-result-for">
-    <p><strong>Search result for: </strong>{{searchText}}</p>
+    <p *ngIf="searchText == '' ?  !showtext: showtext"><strong>Search result for: </strong>{{searchText}}</p>
   </div>
 </article>
+
+

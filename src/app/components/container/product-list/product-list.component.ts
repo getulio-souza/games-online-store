@@ -15,7 +15,7 @@ export class ProductListComponent {
   constructor() {}
 
   disableBtn: boolean = false;
-  // name: string = '';
+  name: string = '';
   addToCart: number = 0;
 
   ngOnInit(): void {
@@ -31,7 +31,6 @@ export class ProductListComponent {
       color: "White",
       model: "PS5 Disc Edition",
       price: 499.99, // in USD
-      discount: 5, // 5% off
       inStock: 150, // Number of units in stock
       imageProduct: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrijce74T1y8gVPtfM1Pz6I3D_sBpc63Pzw&s" // Real image URL
     },
@@ -55,7 +54,6 @@ export class ProductListComponent {
       color: "Yellow",
       model: "Switch Lite",
       price: 199.99, // in USD
-      discount: 15, // 15% off
       inStock: 500, // Number of units in stock
       imageProduct: "https://images.tcdn.com.br/img/img_prod/1297101/console_nintendo_switch_lite_hyrule_edition_com_pacote_de_expansao_nintendo_switch_online_639_1_c42819d773af51def583e09845bb31b9.jpg" // Real image URL
     },
@@ -103,7 +101,6 @@ export class ProductListComponent {
       color: "Black",
       model: "PS Vita",
       price: 249.99, // in USD
-      discount: 25, // 25% off
       inStock: 75, // Number of units in stock
       imageProduct: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/PlayStation-Vita-1101-FL.png/1200px-PlayStation-Vita-1101-FL.png" // Real image URL
     },
@@ -127,7 +124,6 @@ export class ProductListComponent {
       color: "Charcoal Black",
       model: "PS3 Super Slim",
       price: 299.99, // in USD
-      discount: 30, // 30% off
       inStock: 60, // Number of units in stock
       imageProduct: "https://cdn.awsli.com.br/600x1000/396/396949/produto/13434488/7828a08f03.jpg" // Real image URL
     },
@@ -174,4 +170,10 @@ export class ProductListComponent {
       this.addToCart++;
     // }
   }
+
+   onNameChange(event: any){
+    console.log(event.target.value)
+    this.name = event.target.value;
+  }
+
 }

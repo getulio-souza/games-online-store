@@ -6,7 +6,7 @@ export class Product {
     color!: string;
     model!: string;
     price!: number;
-    discount!: number;
+    discount?: number;
     inStock!: number;
     imageProduct!: string;
 }
