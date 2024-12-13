@@ -2,17 +2,18 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { SearchComponent } from "./search/search.component";
+import { ProductListComponent } from "./product-list/product-list.component";
 
 @Component({
-  selector: 'app-product-list',
+  selector: 'app-container',
   standalone: true,
-  imports: [CommonModule, SearchComponent],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.scss',
+  imports: [CommonModule, SearchComponent, ProductListComponent],
+  templateUrl: './container.component.html',
+  styleUrl: './container.component.scss',
 })
 
-export class ProductListComponent implements OnInit {
-  constructor(private cdr: ChangeDetectorRef) {}
+export class ContainerComponent implements OnInit {
+  constructor() {}
 
   disableBtn: boolean = false;
   // name: string = '';
