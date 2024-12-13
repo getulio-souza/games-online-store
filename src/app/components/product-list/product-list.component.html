@@ -1,4 +1,5 @@
 <section class="products-container">
+  <app-search></app-search>
     <article *ngFor="let item of product" class="single-product">
         <img [src]="item.imageProduct" alt="">
         <p>title: {{item.title}}</p>

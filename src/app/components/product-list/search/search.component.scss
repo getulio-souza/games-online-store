@@ -1,0 +1,39 @@
+.search-product-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px;
+
+  .search-product{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    input{
+      border-radius: 10px 0px 0px 10px;
+      width: 25%;
+      min-width: 25%;
+      max-width: 25%;
+      background-color: #efefef;
+      font-size: 15px;
+    }
+
+    button{
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 0px 10px 10px 0px;
+      transition: .5s;
+      cursor: pointer;
+
+      &:hover{
+        background-color: white;
+        color: black;
+        font-weight: 700;
+        border: 1px solid black;
+      }
+    }
+  }
+}
+
