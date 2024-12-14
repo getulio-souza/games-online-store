@@ -8,5 +8,6 @@ export class Product {
     price!: number;
     discount?: number;
     inStock!: number;
+    isAvaliable!: boolean;
     imageProduct!: string;
 }

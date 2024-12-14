@@ -30,8 +30,9 @@ export class ProductListComponent {
       storage: "825 GB SSD",
       color: "White",
       model: "PS5 Disc Edition",
-      price: 499.99, // in USD
-      inStock: 150, // Number of units in stock
+      inStock: 0, // Number of units in stock
+      price: 699.99, // in USD
+      isAvaliable: false,
       imageProduct: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrijce74T1y8gVPtfM1Pz6I3D_sBpc63Pzw&s" // Real image URL
     },
     {
@@ -44,6 +45,7 @@ export class ProductListComponent {
       price: 499.99, // in USD
       discount: 0, // No discount
       inStock: 200, // Number of units in stock
+      isAvaliable: true,
       imageProduct: "https://cdn.awsli.com.br/600x1000/53/53761/produto/312721643/01-5irmxpqpev.jpg" // Real image URL
     },
     {
@@ -55,6 +57,7 @@ export class ProductListComponent {
       model: "Switch Lite",
       price: 199.99, // in USD
       inStock: 500, // Number of units in stock
+      isAvaliable: true,
       imageProduct: "https://images.tcdn.com.br/img/img_prod/1297101/console_nintendo_switch_lite_hyrule_edition_com_pacote_de_expansao_nintendo_switch_online_639_1_c42819d773af51def583e09845bb31b9.jpg" // Real image URL
     },
     {
@@ -65,9 +68,10 @@ export class ProductListComponent {
       color: "Black",
       model: "PS4 Pro",
       price: 399.99, // in USD
-      discount: 20, // 20% off
+      discount: 2, // 20% off
       inStock: 350, // Number of units in stock
-      imageProduct: "https://http2.mlstatic.com/D_NQ_NP_846597-MLA74779477835_022024-O.webp" // Real image URL
+      isAvaliable: true,
+      imageProduct: "https://static.wixstatic.com/media/0baeeb_092bd57a730e47dd8301b1129f9087e8~mv2.jpg/v1/fill/w_520,h_520,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/0baeeb_092bd57a730e47dd8301b1129f9087e8~mv2.jpg" // Real image URL
     },
     {
       id: 6,
@@ -77,8 +81,9 @@ export class ProductListComponent {
       color: "White",
       model: "Xbox Series S",
       price: 299.99, // in USD
-      discount: 10, // 10% off
+      discount: 1, // 10% off
       inStock: 450, // Number of units in stock
+      isAvaliable: true,
       imageProduct: "https://m.media-amazon.com/images/I/51UTUHO90sL.jpg" // Real image URL
     },
     {
@@ -91,6 +96,7 @@ export class ProductListComponent {
       price: 199.99, // in USD
       discount: 5, // 5% off
       inStock: 100, // Number of units in stock
+      isAvaliable: true,
       imageProduct: "https://ae01.alicdn.com/kf/S28f051fde9e0463db267ccf36458471dK/Handheld-Recondicionado-Game-Console-Tela-IPS-Touch-Displays-Cross-Keypad-System-Novo-3DS-XL-LL-IPS.jpg" // Real image URL
     },
     {
@@ -102,6 +108,7 @@ export class ProductListComponent {
       model: "PS Vita",
       price: 249.99, // in USD
       inStock: 75, // Number of units in stock
+      isAvaliable: true,
       imageProduct: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/PlayStation-Vita-1101-FL.png/1200px-PlayStation-Vita-1101-FL.png" // Real image URL
     },
     {
@@ -113,7 +120,8 @@ export class ProductListComponent {
       model: "Xbox One X",
       price: 499.99, // in USD
       discount: 15, // 15% off
-      inStock: 120, // Number of units in stock
+      inStock: 0, // Number of units in stock
+      isAvaliable: false,
       imageProduct: "https://cdn.awsli.com.br/2511/2511718/produto/248335046/33af9622-376f-4464-8190-30e6944c8f0d-wn9vi7nrqm.jpg" // Real image URL
     },
     {
@@ -125,6 +133,7 @@ export class ProductListComponent {
       model: "PS3 Super Slim",
       price: 299.99, // in USD
       inStock: 60, // Number of units in stock
+      isAvaliable: true,
       imageProduct: "https://cdn.awsli.com.br/600x1000/396/396949/produto/13434488/7828a08f03.jpg" // Real image URL
     },
     {
@@ -137,6 +146,7 @@ export class ProductListComponent {
       price: 79.99, // in USD
       discount: 10, // 10% off
       inStock: 200, // Number of units in stock
+      isAvaliable: true,
       imageProduct: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coqvp2jY2qLt__Fjm5gnV9UBNOY-MmQk_g&s" // Real image URL
     },
   ];
@@ -144,15 +154,15 @@ export class ProductListComponent {
 
   calculateDiscountedPrices() {
     this.videogames.forEach((item: any) => {
-      const discontedPrice = item.price - (item.price * item.discont);
-      console.log(discontedPrice);
-      item.itemWithDiscont = discontedPrice;
+      const discontedPrice = item.price - (item.price * item.discount);
+      console.log('valor com desconto:', discontedPrice);
+      item.itemWithDiscont = Number(discontedPrice);
     });
   }
 
   getDiscontedPrice(item: any) {
     if (item && item.price && item.discont) {
-      const discontedPrice = item.price - (item.price * item.discont);
+      const discontedPrice = item.price - (item.price * item.discount);
       return discontedPrice;
     }
     return null;
