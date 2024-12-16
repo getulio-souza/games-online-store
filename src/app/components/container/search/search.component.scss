@@ -18,7 +18,15 @@
       font-size: 15px;
     }
 
-    button{
+    .btn{
+      background-color: rgb(189, 185, 185);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 0px 10px 10px 0px;
+    }
+
+    .btn-search{
       background-color: black;
       color: white;
       border: none;

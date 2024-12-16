@@ -1,26 +1,3 @@
 <section class="product-container">
-    <article *ngFor="let item of videogames" class="single-product">
-        <div class="img-and-discont">
-            <img [src]="item.imageProduct" alt="">
-            <div class="product-discont" *ngIf="item.discount">{{(item.price * (item.discount / 100)).toFixed(2)}}%</div>
-        </div>
-        <div style="display: flex;gap: 20px;padding: 10px;">
-            <div>{{item.name}}</div>
-            <!-- increase and decrease btn -->
-            <div class="btn-container">
-                <button (click)="decrementCartValue()">-</button>
-                <span>{{addToCart}}</span>
-                <button (click)="incrementCartValue()">+</button>
-            </div>
-        </div>
-        <p>storage: {{item.storage}}</p>
-        <p>model: {{item.model}}</p>
-        <p>color: {{item.color}}</p>
-        <p>Price: {{'$' + item.price}}</p>
-        <p [ngStyle]="{'display': item.discount == null || item.discount == 0 ? 'none' : 'block'}">Discont: {{item.discount}}</p>
-        <p *ngIf="item.discount">Disconted price:{{item.price - item.discount}}</p>
-        <div style="color: red;">
-            {{item.inStock >= 0 ? 'Only '  + item.inStock + ' are left'  :  + 'no products avaliable'}}
-        </div>
-    </article>
+    <app-product *ngFor="let item of videogames"></app-product>
 </section>

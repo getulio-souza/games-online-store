@@ -13,6 +13,7 @@ export class SearchComponent {
 
   searchText: string = '';
   showtext: boolean = true;
+  enableSearchBtn: boolean = true;
 
   updateSearchText(event: any){
     this.searchText = event.target.value;
