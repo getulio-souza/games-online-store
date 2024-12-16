@@ -3,11 +3,12 @@ import { Component, Input } from '@angular/core';
 import { Product } from './product';
 import { ProductComponent } from "./product/product.component";
 import { FilterComponent } from "./filter/filter.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent, FilterComponent],
+  imports: [CommonModule, ProductComponent, FilterComponent, FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
@@ -175,6 +176,9 @@ export class ProductListComponent {
   //getting all out of stock products 
   outOfStockVideogames: any = this.videogames.filter(product => product.inStock == 0 && product.isAvaliable === false).length;
   
+  //property to keep track of the radio button
+  selectedFilterRadioButton: string = 'all';
+
   calculateDiscountedPrices() {
     this.videogames.forEach((item: any) => {
       const discontedPrice = item.price - (item.price * item.discount);
@@ -207,6 +211,10 @@ export class ProductListComponent {
    onNameChange(event: any){
     console.log(event.target.value)
     this.name = event.target.value;
+  }
+
+  onFilterChange(value: string){
+    this.selectedFilterRadioButton = value;
   }
 
 }

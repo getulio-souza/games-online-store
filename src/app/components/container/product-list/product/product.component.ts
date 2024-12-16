@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Product } from '../product';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',

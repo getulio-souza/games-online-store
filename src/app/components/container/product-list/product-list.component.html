@@ -2,8 +2,18 @@
 [all]="totalVideogames" 
 [inStock]="inStockVideogames" 
 [outOfStock]="outOfStockVideogames"
+
+(selectFilterOnButtonChange)="onFilterChange($event)"
 >
+<!-- when the event 'selectFilterOnButtonChange' happens, the method 'onFilterChange()' will be called -->
 </app-filter>
 <section class="product-container">
-    <app-product *ngFor="let item of videogames"[product]="item"></app-product>
+    <div *ngFor="let item of videogames">
+        <app-product 
+            [product]="item" 
+            *ngIf="selectedFilterRadioButton === 'all' ||
+            item.isAvaliable.toString() === selectedFilterRadioButton"
+         >
+         </app-product>
+    </div>
 </section>
