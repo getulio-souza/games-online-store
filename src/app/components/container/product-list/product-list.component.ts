@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from './product';
 import { ProductComponent } from "./product/product.component";
+import { FilterComponent } from "./filter/filter.component";
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, FilterComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'
 })
@@ -96,8 +97,8 @@ export class ProductListComponent {
       model: "3DS XL",
       price: 199.99, // in USD
       discount: 5, // 5% off
-      inStock: 100, // Number of units in stock
-      isAvaliable: true,
+      inStock: 0, // Number of units in stock
+      isAvaliable: false,
       imageProduct: "https://ae01.alicdn.com/kf/S28f051fde9e0463db267ccf36458471dK/Handheld-Recondicionado-Game-Console-Tela-IPS-Touch-Displays-Cross-Keypad-System-Novo-3DS-XL-LL-IPS.jpg" // Real image URL
     },
     {
@@ -147,12 +148,33 @@ export class ProductListComponent {
       price: 79.99, // in USD
       discount: 10, // 10% off
       inStock: 200, // Number of units in stock
+      isAvaliable: false,
+      imageProduct: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coqvp2jY2qLt__Fjm5gnV9UBNOY-MmQk_g&s" // Real image URL
+    },
+    {
+      id: 12,
+      name: "Sega Genesis Mini",
+      brand: "Sega",
+      storage: "Built-in games (40 titles)",
+      color: "Black",
+      model: "Genesis Mini",
+      price: 79.99, // in USD
+      discount: 10, // 10% off
+      inStock: 200, // Number of units in stock
       isAvaliable: true,
       imageProduct: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coqvp2jY2qLt__Fjm5gnV9UBNOY-MmQk_g&s" // Real image URL
     },
   ];
-  
 
+  //getting all the products from store
+  totalVideogames: any = this.videogames.length;
+
+  //getting all in stock products
+  inStockVideogames: any = this.videogames.filter(product => product.isAvaliable === true).length;
+
+  //getting all out of stock products 
+  outOfStockVideogames: any = this.videogames.filter(product => product.inStock == 0 && product.isAvaliable === false).length;
+  
   calculateDiscountedPrices() {
     this.videogames.forEach((item: any) => {
       const discontedPrice = item.price - (item.price * item.discount);
@@ -169,18 +191,18 @@ export class ProductListComponent {
     return null;
   }
 
-  decrementCartValue(){
-    if(this.addToCart > 0){
-      this.addToCart--;
-    }
-  }
+  // decrementCartValue(){
+  //   if(this.addToCart > 0){
+  //     this.addToCart--;
+  //   }
+  // }
 
-  incrementCartValue(){
-    //if the products i wanna add to the cart are less than the products i have in stock, i will be able to add more items to my cart
-    // if(this.addToCart < this.videogame.inStock){
-      this.addToCart++;
-    // }
-  }
+  // incrementCartValue(){
+  //   //if the products i wanna add to the cart are less than the products i have in stock, i will be able to add more items to my cart
+  //   // if(this.addToCart < this.videogame.inStock){
+  //     this.addToCart++;
+  //   // }
+  // }
 
    onNameChange(event: any){
     console.log(event.target.value)

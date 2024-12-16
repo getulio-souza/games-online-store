@@ -5,43 +5,43 @@
   align-items: center;
   gap: 20px;
 
-  .single-product {
-    background-color: #eeeeee;
-    box-shadow: 1px 2px 3px #cbc5c5;
-    border-radius: 10px;
-    padding: 20px;
-    height: 500px;
-    overflow: hidden;
+  // .single-product {
+  //   background-color: #eeeeee;
+  //   box-shadow: 1px 2px 3px #cbc5c5;
+  //   border-radius: 10px;
+  //   padding: 20px;
+  //   height: 500px;
+  //   overflow: hidden;
 
-    .img-and-discont{
-      position: relative;
-      img {
-        width: 200px;
-        height: 200px;
-        transition: 0.5s;
+  //   .img-and-discont{
+  //     position: relative;
+  //     img {
+  //       width: 200px;
+  //       height: 200px;
+  //       transition: 0.5s;
   
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-      .product-discont{
-        position: absolute;
-        top: 0;
-        background: yellow;
-        padding: 10px;
-        border-radius: 10px 0px 10px 10px;
-      }
-    }
+  //       &:hover {
+  //         opacity: 0.7;
+  //       }
+  //     }
+  //     .product-discont{
+  //       position: absolute;
+  //       top: 0;
+  //       background: yellow;
+  //       padding: 10px;
+  //       border-radius: 10px 0px 10px 10px;
+  //     }
+  //   }
 
-    .btn-container {
-      display: flex;
-      gap: 5px;
+  //   .btn-container {
+  //     display: flex;
+  //     gap: 5px;
 
-      button {
-        background-color: black;
-        border: none;
-        color: white;
-      }
-    }
-  }
+  //     button {
+  //       background-color: black;
+  //       border: none;
+  //       color: white;
+  //     }
+  //   }
+  // }
 }
