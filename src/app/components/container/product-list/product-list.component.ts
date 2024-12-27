@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductListComponent {
 
-  
+
   constructor() {}
 
   disableBtn: boolean = false;
@@ -173,16 +173,18 @@ export class ProductListComponent {
   //getting all in stock products
   inStockVideogames: any = this.videogames.filter(product => product.isAvaliable === true).length;
 
-  //getting all out of stock products 
+  //getting all out of stock products
   outOfStockVideogames: any = this.videogames.filter(product => product.inStock == 0 && product.isAvaliable === false).length;
-  
+
+  @Input()searchText: string = ""
+
   //property to keep track of the radio button
   selectedFilterRadioButton: string = 'all';
 
   calculateDiscountedPrices() {
     this.videogames.forEach((item: any) => {
       const discontedPrice = item.price - (item.price * item.discount);
-      console.log('valor com desconto:', discontedPrice);
+      // console.log('valor com desconto:', discontedPrice);
       item.itemWithDiscont = Number(discontedPrice);
     });
   }
@@ -213,7 +215,8 @@ export class ProductListComponent {
     this.name = event.target.value;
   }
 
-  onFilterChange(value: string){
+  onFilterChange(value: string) {
+    console.log(value)
     this.selectedFilterRadioButton = value;
   }
 

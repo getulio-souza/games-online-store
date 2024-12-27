@@ -1,6 +1,6 @@
-<app-filter 
-[all]="totalVideogames" 
-[inStock]="inStockVideogames" 
+<app-filter
+[all]="totalVideogames"
+[inStock]="inStockVideogames"
 [outOfStock]="outOfStockVideogames"
 
 (selectFilterOnButtonChange)="onFilterChange($event)"
@@ -9,11 +9,13 @@
 </app-filter>
 <section class="product-container">
     <div *ngFor="let item of videogames">
-        <app-product 
-            [product]="item" 
-            *ngIf="selectedFilterRadioButton === 'all' ||
-            item.isAvaliable.toString() === selectedFilterRadioButton"
+        <app-product
+            [product]="item"
+            *ngIf="searchText === '' || item.name.toLowerCase().includes(searchText)"
          >
          </app-product>
     </div>
 </section>
+
+<!-- *ngIf="selectedFilterRadioButton === 'all' ||
+            item.isAvaliable.toString() === selectedFilterRadioButton" -->

@@ -1,4 +1,4 @@
 <section class="products-container">
-  <app-search></app-search>
-  <app-product-list></app-product-list>  
+  <app-search (searchTextChanged)="setSearchText($event)"></app-search>
+  <app-product-list [searchText]="searchText"></app-product-list>
 </section>

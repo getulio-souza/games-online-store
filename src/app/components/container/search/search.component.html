@@ -1,11 +1,21 @@
 <article class="search-product-container">
   <div class="search-product">
-    <input type="text" class="search-product-input" [(ngModel)]="searchText">
-    <button [ngClass]="{'btn-search' : searchText, 'btn': !searchText}" [disabled]="!searchText">Search</button>
+    <input
+    type="text"
+    class="search-product-input"
+    [(ngModel)]="searchText"
+    (input)="onSearchTextChanged()"
+    />
+    <button
+      [ngClass]="{ 'btn-search': searchText, btn: !searchText }"
+      [disabled]="!searchText"
+    >
+      Search
+    </button>
   </div>
   <div class="search-result-for">
-    <p *ngIf="searchText == '' ?  !showtext: showtext"><strong>Search result for: </strong>{{searchText}}</p>
+    <p *ngIf="searchText == '' ? !showtext : showtext">
+      <strong>Search result for: </strong>{{ searchText }}
+    </p>
   </div>
 </article>
-
-

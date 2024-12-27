@@ -16,9 +16,13 @@ export class ContainerComponent implements OnInit {
   constructor() {}
 
   disableBtn: boolean = false;
-  // name: string = '';
+  searchText: string = "";
   addToCart: number = 0;
 
   ngOnInit(): void {
+  }
+
+  setSearchText(value: string ) {
+    this.searchText = value;
   }
 }
