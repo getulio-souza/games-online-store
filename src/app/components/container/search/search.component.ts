@@ -11,17 +11,21 @@ import { FormsModule } from '@angular/forms';
 })
 export class SearchComponent {
 
-  @Output()searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Output() searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
   searchText: string = '';
   showtext: boolean = true;
   enableSearchBtn: boolean = true;
 
-  updateSearchText(event: any){
-    this.searchText = event.target.value;
+  updateSearchText(inputElement: HTMLInputElement) {
+    console.log(inputElement.value)
+    this.searchText = inputElement.value;
+    // this.searchText = event.target.value;
+    this.searchTextChanged.emit(this.searchText)
+
   }
 
-  onSearchTextChanged() {
-    this.searchTextChanged.emit(this.searchText)
-  }
+  // onSearchTextChanged() {
+  //   // this.searchTextChanged.emit(this.searchText)
+  // }
 }

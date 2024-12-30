@@ -3,12 +3,12 @@
     <input
     type="text"
     class="search-product-input"
-    [(ngModel)]="searchText"
-    (input)="onSearchTextChanged()"
+    #searchInput
+    (keydown.enter)="updateSearchText(searchInput)"
     />
     <button
-      [ngClass]="{ 'btn-search': searchText, btn: !searchText }"
-      [disabled]="!searchText"
+    class="btn btn-search"
+    (click)="updateSearchText(searchInput)"
     >
       Search
     </button>
