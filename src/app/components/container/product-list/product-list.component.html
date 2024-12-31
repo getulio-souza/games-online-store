@@ -8,7 +8,7 @@
 <!-- when the event 'selectFilterOnButtonChange' happens, the method 'onFilterChange()' will be called -->
 </app-filter>
 <section class="product-container">
-    <div *ngFor="let item of videogames">
+    <div *ngFor="let item of videogames" (click)="selectedProduct = item">
         <app-product
             [product]="item"
             *ngIf="searchText === '' || item.name.toLowerCase().includes(searchText)"

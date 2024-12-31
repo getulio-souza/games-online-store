@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Product } from './product';
 import { ProductComponent } from "./product/product.component";
 import { FilterComponent } from "./filter/filter.component";
 import { FormsModule } from '@angular/forms';
+import { Product } from '../../../models/Product';
 
 @Component({
   selector: 'app-product-list',
@@ -24,6 +24,8 @@ export class ProductListComponent {
   ngOnInit(): void {
     this.calculateDiscountedPrices();
   }
+
+  selectedProduct!: Product;
 
     videogames: Product[] = [
     {

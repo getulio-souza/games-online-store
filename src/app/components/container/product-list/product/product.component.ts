@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Product } from '../product';
 import { FormsModule } from '@angular/forms';
+import { Product } from '../../../../models/Product';
 
 @Component({
   selector: 'app-product',
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class ProductComponent {
   @Input() product!: Product;
   addToCart: number = 0;
+  isProductDetailOpen: boolean = false;
 
   decrementCartValue(){
     if(this.addToCart > 0){
@@ -25,5 +26,9 @@ export class ProductComponent {
     // if(this.addToCart < this.videogame.inStock){
       this.addToCart++;
     // }
+  }
+
+  onOpenProductDetail() {
+    this.isProductDetailOpen = !this.isProductDetailOpen;
   }
 }
