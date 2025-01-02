@@ -7,6 +7,24 @@
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  .product-detail-close-btn{
+    display: flex;
+    justify-content: flex-end;
+    button{
+      background-color: transparent;
+      border: none;
+      color: rgb(199, 115, 115);
+      font-size: 30px;
+      cursor: pointer;
+      transition: .5s;
+      &:hover{
+        opacity: 0.8;
+        color: red;
+      }
+    }
+  }
 }
 
 .product-header {

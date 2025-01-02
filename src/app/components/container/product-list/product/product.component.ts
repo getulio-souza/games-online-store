@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../../../models/Product';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-product',
@@ -11,9 +12,10 @@ import { Product } from '../../../../models/Product';
   styleUrl: './product.component.scss'
 })
 export class ProductComponent {
+
   @Input() product!: Product;
+
   addToCart: number = 0;
-  isProductDetailOpen: boolean = false;
 
   decrementCartValue(){
     if(this.addToCart > 0){
@@ -28,7 +30,7 @@ export class ProductComponent {
     // }
   }
 
-  onOpenProductDetail() {
-    this.isProductDetailOpen = !this.isProductDetailOpen;
-  }
+  // onOpenProductDetail(){
+    
+  // }
 }

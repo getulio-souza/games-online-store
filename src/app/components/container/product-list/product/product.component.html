@@ -1,4 +1,6 @@
-<article class="single-product">
+<article 
+  class="single-product"
+>
   <div class="img-and-discont">
     <img [src]="product.imageProduct" alt="" />
     <div class="product-discont" *ngIf="product.discount">
@@ -49,6 +51,8 @@
     {{ product.isAvaliable ? "avaliable in stock" : "not avaliable in stock" }}
   </div>
   <div>
-    <button (click)="onOpenProductDetail()" style="background-color: red; color: white; margin-top: 20px">see more details</button>
+    <button 
+      style="background-color: red; color: white; margin-top: 20px"
+      >see more details</button>
   </div>
 </article>

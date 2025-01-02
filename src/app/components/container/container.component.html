@@ -2,7 +2,7 @@
   <app-search (searchTextChanged)="setSearchText($event)"></app-search>
   <app-product-list
     [searchText]="searchText"
-    (openProductDetail)="onOpenProductDetail()"
+    #productListComponent
   ></app-product-list>
-  <app-product-detail *ngIf="isProductDetailOpen"></app-product-detail>
+  <app-product-detail *ngIf="productListComponent.selectedProduct"></app-product-detail>
 </section>

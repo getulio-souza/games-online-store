@@ -21,6 +21,8 @@ export class ProductListComponent {
   name: string = '';
   addToCart: number = 0;
 
+  isProductDetailOpen: boolean = false;
+
   ngOnInit(): void {
     this.calculateDiscountedPrices();
   }
@@ -220,6 +222,10 @@ export class ProductListComponent {
   onFilterChange(value: string) {
     console.log(value)
     this.selectedFilterRadioButton = value;
+  }
+
+  onOpenProductDetail(){
+    this.isProductDetailOpen = !this.isProductDetailOpen;
   }
 
 }

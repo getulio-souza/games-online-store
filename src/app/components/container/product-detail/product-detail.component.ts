@@ -10,12 +10,10 @@ import { EventEmitter } from 'stream';
 })
 export class ProductDetailComponent {
 
-  @Output() openProductDetail = new EventEmitter<any>();
+  isProductDetailClose: boolean = true;
 
-  isProductDetailOpen!: boolean;
-
-  onOpenProductDetail() {
-    this.openProductDetail.emit(this.isProductDetailOpen)
+  onCloseProductDetail(){
+    this.isProductDetailClose = !this.isProductDetailClose;
   }
 
 }
