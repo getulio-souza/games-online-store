@@ -1,42 +1,42 @@
 <div class="product-detail">
   <div class="product-detail-close-btn">
-    <button (click)="onCloseProductDetail()">x</button>
+    <button (click)="onCloseProductDetailCard()">x</button>
   </div>
   <div class="product-header">
-    <h1>playstation 4</h1>
-    <p class="price">$ 400</p>
+    <h1>{{productDetailData.name}}</h1>
+    <p class="price">$ {{productDetailData.price}}</p>
   </div>
 
   <div class="product-image">
-    <!-- <img [src]="product.imageUrl" [alt]="product.title" /> -->
+    <img [src]="productDetailData.imageProduct" [alt]="productDetailData.name" />
   </div>
 
   <div class="product-info">
     <h2>Description</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, alias.</p>
+    <p>{{productDetailData.description}}</p>
 
     <h3>Features</h3>
-    <ul>
+    <ul *ngFor="let feature of features">
       <!-- <li *ngFor="let feature of product.features">{{ feature }}</li> -->
-      <li>high speed processor, durability</li>
+      <li>{{feature}}</li>
     </ul>
 
     <h3>Specifications</h3>
     <table>
       <tr>
-        <th>Platform</th>
+        <th setBackground>Platform</th>
         <!-- <td>{{ product.platform }}</td> -->
-        <td>sony</td>
+        <td>{{productDetailData.brand}}</td>
       </tr>
       <tr>
-        <th>Genre</th>
+        <th setBackground>model</th>
         <!-- <td>{{ product.genre }}</td> -->
-        <td>consoles</td>
+        <td>{{productDetailData.model}}</td>
       </tr>
       <tr>
-        <th>Release Date</th>
+        <th setBackground>Color</th>
         <!-- <td>{{ product.releaseDate | date }}</td> -->
-        <td>2014</td>
+        <td>{{productDetailData.color}}</td>
       </tr>
     </table>
   </div>
@@ -45,6 +45,6 @@
     <!-- <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button> -->
     <button class="btn btn-primary">Add to Cart</button>
     <!-- <button class="btn btn-secondary" (click)="goBack()">Back</button> -->
-    <button class="btn btn-secondary">Back</button>
+    <button (click)="onCloseProductDetailCard()" class="btn btn-secondary">Back</button>
   </div>
 </div>

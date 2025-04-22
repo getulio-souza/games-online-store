@@ -2,13 +2,13 @@
 [all]="totalVideogames"
 [inStock]="inStockVideogames"
 [outOfStock]="outOfStockVideogames"
-
-(selectFilterOnButtonChange)="onFilterChange($event)"
+(selectAll)="onSelectedAll($event)"
+(selectAvaliable)="onSelectedAvaliable($event)"
+(selectNotAvaliable)="onSelectedNotAvaliable($event)"
 >
-<!-- when the event 'selectFilterOnButtonChange' happens, the method 'onFilterChange()' will be called -->
 </app-filter>
 <section class="product-container">
-    <div *ngFor="let item of videogames" (click)="selectedProduct = item">
+    <div *ngFor="let item of videogames" (click)="onSelectedProduct(item)">
         <app-product
             [product]="item"
             *ngIf="searchText === '' || item.name.toLowerCase().includes(searchText)"

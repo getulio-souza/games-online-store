@@ -19,7 +19,7 @@
         width: 200px;
         height: 200px;
         transition: 0.5s;
-  
+
       }
       .product-discont{
         position: absolute;
@@ -41,3 +41,26 @@
       }
     }
   }
+
+  app-product-detail{
+    position: absolute;
+    top: 70px;
+    right: 0;
+    z-index: 3;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* escurece o fundo */
+    z-index: 1000;
+    /* garante que fique acima dos elementos normais */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+

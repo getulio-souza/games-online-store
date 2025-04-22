@@ -8,6 +8,9 @@
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  max-height: 90vh;
 
   .product-detail-close-btn{
     display: flex;
@@ -46,7 +49,7 @@
 }
 
 .product-image img {
-  width: 100%;
+  // width: 300px;
   max-height: 200px;
   object-fit: cover;
   border-radius: 5px;

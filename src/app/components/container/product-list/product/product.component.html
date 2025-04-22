@@ -1,4 +1,4 @@
-<article 
+<article
   class="single-product"
 >
   <div class="img-and-discont">
@@ -51,8 +51,19 @@
     {{ product.isAvaliable ? "avaliable in stock" : "not avaliable in stock" }}
   </div>
   <div>
-    <button 
+    <button
+    (click)="onOpenDetails()"
       style="background-color: red; color: white; margin-top: 20px"
       >see more details</button>
   </div>
 </article>
+
+<div *ngIf="showProductDetail" class="overlay">
+
+</div>
+
+<app-product-detail
+[ngClass]="showProductDetail == true ? 'overlay' : ''"
+*ngIf="showProductDetail"
+(openProductDetail)="onCloseDetails()"
+></app-product-detail>

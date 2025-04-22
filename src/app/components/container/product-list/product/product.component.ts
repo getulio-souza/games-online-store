@@ -1,19 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../../../models/Product';
-import { EventEmitter } from 'stream';
+import { ProductDetailComponent } from "./product-detail/product-detail.component";
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProductDetailComponent, ProductDetailComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })
 export class ProductComponent {
 
   @Input() product!: Product;
+
+  @ViewChild('productDetail') productDetail!: ProductDetailComponent
+  showProductDetail: boolean = false;
 
   addToCart: number = 0;
 
@@ -30,7 +33,12 @@ export class ProductComponent {
     // }
   }
 
-  // onOpenProductDetail(){
-    
-  // }
+  onOpenDetails() {
+    console.log('chamou o metodo para abrir o card de detalhes')
+    this.showProductDetail = true;
+  }
+
+  onCloseDetails() {
+    this.showProductDetail = false;
+  }
 }

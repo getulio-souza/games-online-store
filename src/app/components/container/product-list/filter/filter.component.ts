@@ -15,11 +15,22 @@ export class FilterComponent {
   @Input() outOfStock: number = 0;
 
   selectedFilterButtons: string = 'all'
-  //we need to specify what type of data we are going to emit which in this case is 'string'
-  @Output() selectFilterOnButtonChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() selectAll: EventEmitter<string> = new EventEmitter<string>();
+  @Output() selectAvaliable: EventEmitter<string> = new EventEmitter<string>();
+  @Output() selectNotAvaliable: EventEmitter<string> = new EventEmitter<string>();
 
-  onSelectFilterOnChange(){
-    console.log('select btn from filter',this.selectedFilterButtons)
-    this.selectFilterOnButtonChange.emit(this.selectedFilterButtons)
+  onSelectAvalibleProducts(){
+    console.log('selecionou todos')
+    this.selectAvaliable.emit();
+  }
+
+  onSelectAllProducts() {
+    console.log('selecionou disponiveis')
+    this.selectAll.emit();
+  }
+
+  onSelecteNotAvaliable() {
+    console.log('selecionou nao disponiveis')
+    this.selectNotAvaliable.emit();
   }
 }

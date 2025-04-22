@@ -10,4 +10,6 @@ export class Product {
   price!: number;
   isAvaliable!: boolean;
   imageProduct!: string;
+  description!: string;
+  features!: string[];
 }
